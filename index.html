@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+  <div x-data="pixiApp">
+    <div id="pixi-container"></div>
+    
+    <input type="file" id="file-input" accept="image/*" />
+    <template x-for="(tile, index) in tiles" :key="index">
+      <div> 
+      <br>
+      <button @click="moveUp(index)" :disabled="index === 0">Up</button>
+      <button @click="moveDown(index)" :disabled="index === tiles.length - 1">Down</button>
+      <br>
+      <input type="range" min="-10" max="10" step="0.1" x-model.number="tile.speed" />
+    </div>
+    </template>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
